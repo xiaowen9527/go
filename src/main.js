@@ -4,6 +4,17 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 
+import Vant from 'vant';
+import 'vant/lib/vant-css/index.css';
+
+import { Lazyload } from 'vant';
+
+import VueAwesomeSwiper from "vue-awesome-swiper";
+
+Vue.use(Vant)
+Vue.use(Lazyload)
+Vue.use(VueAwesomeSwiper)
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
