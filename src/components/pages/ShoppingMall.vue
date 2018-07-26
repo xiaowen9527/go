@@ -104,12 +104,12 @@ export default {
   background-color: #e5017d;
   color: #fff;
 }
-  .location-icon{
-      padding-top: .5rem;
-      height: 100%;
-      display: block;
-      padding-left: .3rem;
-  }
+.location-icon {
+  padding-top: .2rem;
+  height: 100%;
+  display: block;
+  padding-left: 0.3rem;
+}
 
 .swiper-area {
   width: 100%;
