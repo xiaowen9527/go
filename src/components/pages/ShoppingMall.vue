@@ -38,15 +38,44 @@
             推荐商品            
           </div>
           <div class="recommend-body">
-
+            <swiper :options="swiperOption">
+              <swiper-slide v-for="(item,index) in recommendGoods" :key="index">
+                <div class="recommend-item">
+                  <img :src="item.image" width="80%">
+                  <div>{{item.goodsName}}</div>
+                  <div>{{item.price}}{{item.mallPrice}}</div>
+                </div>
+              </swiper-slide>
+            </swiper>
           </div>
         </div>
 
+<!--floor one area-->
+<div class="floor">
+ 
+    <div class="floor-anomaly">
+        <div class="floor-one"><img :src="floor1_0.image" width="100%" /></div>
+        <div>
+            <div class="floor-two"><img :src="floor1_2.image" width="100%" /></div>
+            <div><img :src="floor1_3.image" width="100%" /></div>
+        </div>
+    </div>
+ 
+</div>
+
+<div class="floor-rule">
+    <div v-for="(item ,index) in floor1.slice(3)" :key="index">
+        <img :src="item.image" width="100%"/>
+    </div>
+</div>
+        
+        <!-- <swiperDefault></swiperDefault> -->
     </div>
 </template>
 
 <script>
 import axios from "axios";
+import swiperDefault from "../swiper/swiperDefault";
 export default {
   data() {
     return {
@@ -66,10 +95,12 @@ export default {
         }
       ],
       category: [],
-      adbanner: []
+      adbanner: [],
+      recommendGoods: [],
+      floor1: [],
     };
   },
-
+  components: { swiperDefault },
   created() {
     axios({
       url:
@@ -81,6 +112,13 @@ export default {
         if (response.status == 200) {
           this.category = response.data.data.category;
           this.adbanner = response.data.data.advertesPicture;
+          this.recommendGoods = response.data.data.recommend;
+
+          this.floor1 = response.data.data.floor1;
+          //楼层1数据
+          this.floor1_0 = this.floor1[0];
+          this.floor1_2 = this.floor1[1];
+          this.floor1_3 = this.floor1[2];
         }
       })
       .catch(error => {});
@@ -105,7 +143,7 @@ export default {
   color: #fff;
 }
 .location-icon {
-  padding-top: .2rem;
+  padding-top: 0.3rem;
   height: 100%;
   display: block;
   padding-left: 0.3rem;
@@ -140,4 +178,49 @@ export default {
   font-size: 14px;
   color: #e5017d;
 }
+.recommend-body {
+  border-bottom: 1px solid #eee;
+}
+
+.recommend-item {
+  width: 99%;
+  border-right: 1px solid #eee;
+  font-size: 12px;
+  text-align: center;
+}
+ .floor-anomaly{
+      display: flex;
+      flex-direction:row;
+      background-color: #fff;
+      border-bottom:1px solid #ddd;
+  }
+  .floor-anomaly div{
+     width:10rem;
+ 
+     box-sizing: border-box;
+     -webkit-box-sizing: border-box;
+  }
+  .floor-one{
+      border-right:1px solid #ddd;
+ 
+  }
+  .floor-two{
+      border-bottom:1px solid #ddd;
+  }
+  .floor-rule{
+      display: flex;
+      flex-direction: row;
+      flex-wrap:wrap;
+      background-color: #fff;
+
+  }
+  .floor-rule div{
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      width:10rem;
+      border-bottom:1px solid #ddd;
+  }
+  .floor-rule div:nth-child(odd){
+      border-right: 1px solid #ddd;
+  }
 </style>
