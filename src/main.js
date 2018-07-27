@@ -3,21 +3,14 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import fastClick from 'fastclick'
 
-//引入vant
-import Vant from 'vant';
-import 'vant/lib/vant-css/index.css';
-Vue.use(Vant)
 
-//引入lazyload懒加载组件
-import { Lazyload } from 'vant';
-Vue.use(Lazyload)
+import "styles/reset.css"
+import "styles/border.css"
 
-//vue-awesome-swiper图片滑动组件
-import VueAwesomeSwiper from "vue-awesome-swiper";
-import 'swiper/dist/css/swiper.css'
-Vue.use(VueAwesomeSwiper)
 
+import "styles/iconfont.css"
 
 
 

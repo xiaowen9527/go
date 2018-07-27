@@ -6,17 +6,10 @@
 
 <script>
 export default {
-  data () {
-    return {
-      
-    }
-  }
+  name: 'App'
 }
 </script>
 
-
 <style>
-#app{
-  background-color: #eeeeee;
-}
+
 </style>

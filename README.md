@@ -1,4 +1,4 @@
-# smile
+# go
 
 > A Vue.js project
 

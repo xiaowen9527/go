@@ -1,16 +1,15 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import ShoppingMall from '@/components/pages/ShoppingMall'
+import Home from '@/pages/home/Home'
 
 Vue.use(Router)
 
 export default new Router({
-  mode:'history',
   routes: [
-    { 
+    {
       path: '/',
-      name: 'shoppingMall',
-      component: ShoppingMall
+      name: 'Home',
+      component: Home
     }
   ]
 })
