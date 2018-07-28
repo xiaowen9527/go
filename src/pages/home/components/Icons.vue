@@ -90,6 +90,8 @@ export default {
     .icons>>>.swiper-container
         width 100%
         height 50vw
+    .icons
+        margin-top .1rem
     .icon
         overflow hidden
         position relative
