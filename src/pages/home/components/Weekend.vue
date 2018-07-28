@@ -20,39 +20,29 @@
 </template>
 
 <script>
-    export default {
-        name:'Recommend',
-        data() {
-            return {
-                recommendList:[
-                    {
-                        id:'0001',
-                        imgUrl:'https://ugc.qunarzz.com/4/19674c7d.JPEG_r_1500x_cc71e7da.jpeg',
-                        title:'东京 | 自由行',
-                        desc:'暑期全国直飞日本东京5-7天往返含税单机票 自由行 赏樱日本旅游'
-                    },
-                    {
-                        id:'0002',
-                        imgUrl:'https://ugc.qunarzz.com/4/19674c7d.JPEG_r_1500x_cc71e7da.jpeg',
-                        title:'东京 | 自由行',
-                        desc:'暑期全国直飞日本东京5-7天往返含税单机票 自由行 赏樱日本旅游'
-                    },
-                    {
-                        id:'0003',
-                        imgUrl:'https://ugc.qunarzz.com/4/19674c7d.JPEG_r_1500x_cc71e7da.jpeg',
-                        title:'东京 | 自由行',
-                        desc:'暑期全国直飞日本东京5-7天往返含税单机票 自由行 赏樱日本旅游'
-                    },
-                    {
-                        id:'0004',
-                        imgUrl:'https://ugc.qunarzz.com/4/19674c7d.JPEG_r_1500x_cc71e7da.jpeg',
-                        title:'东京 | 自由行',
-                        desc:'暑期全国直飞日本东京5-7天往返含税单机票 自由行 赏樱日本旅游'
-                    },
-                ]
-            }
+export default {
+  name: "Recommend",
+  data() {
+    return {
+      recommendList: [
+        {
+          id: "0001",
+          imgUrl:
+            "https://ugc.qunarzz.com/4/19674c7d.JPEG_r_1500x_cc71e7da.jpeg",
+          title: "东京 | 自由行",
+          desc: "暑期全国直飞日本东京5-7天往返含税单机票 自由行 赏樱日本旅游"
         },
-    }
+        {
+          id: "0002",
+          imgUrl:
+            "https://ugc.qunarzz.com/4/19674c7d.JPEG_r_1500x_cc71e7da.jpeg",
+          title: "东京 | 自由行",
+          desc: "暑期全国直飞日本东京5-7天往返含税单机票 自由行 赏樱日本旅游"
+        }
+      ]
+    };
+  }
+};
 </script>
 
 <style lang="stylus" scoped>
