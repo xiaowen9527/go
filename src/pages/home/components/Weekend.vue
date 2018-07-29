@@ -4,7 +4,7 @@
     <ul>
       <li
         class="item border-bottom"
-        v-for="item of recommendList"
+        v-for="item of list"
         :key="item.id"
       >
         <div class="item-img-wrapper">
@@ -21,26 +21,9 @@
 
 <script>
 export default {
-  name: "Recommend",
-  data() {
-    return {
-      recommendList: [
-        {
-          id: "0001",
-          imgUrl:
-            "https://ugc.qunarzz.com/4/19674c7d.JPEG_r_1500x_cc71e7da.jpeg",
-          title: "东京 | 自由行",
-          desc: "暑期全国直飞日本东京5-7天往返含税单机票 自由行 赏樱日本旅游"
-        },
-        {
-          id: "0002",
-          imgUrl:
-            "https://ugc.qunarzz.com/4/19674c7d.JPEG_r_1500x_cc71e7da.jpeg",
-          title: "东京 | 自由行",
-          desc: "暑期全国直飞日本东京5-7天往返含税单机票 自由行 赏樱日本旅游"
-        }
-      ]
-    };
+  name: "Weekend",
+  props:{
+    list:Array
   }
 };
 </script>
@@ -54,7 +37,7 @@ export default {
   .item-img-wrapper
     overflow: hidden
     height: 0
-    padding-bottom: 51.6%
+    padding-bottom: 38%
     .item-img
       width: 100%
   .item-info

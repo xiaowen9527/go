@@ -2,7 +2,7 @@
   <div class="wrapper">
     <swiper :options="swiperOption">
         <!-- slides -->
-        <swiper-slide v-for="(item,index) in swiperList" :key="index">
+        <swiper-slide v-for="(item,index) in list" :key="index">
           <img class="weiper-img" :src="item.imgUrl" alt="">
         </swiper-slide>
         <div class="swiper-pagination"  slot="pagination"></div>
@@ -13,6 +13,9 @@
 <script>
 export default {
   name: "HomeSwiper",
+  props:{
+    list:Array
+  },
   data () {
     return {
       swiperOption: {
@@ -20,16 +23,7 @@ export default {
         loop:'auto',
         autoplay: 3000,
       },
-      swiperList:[
-        {
-        id:'0001',
-        imgUrl:'https://source.qunarzz.com/site/images/wap/home/recommend/iphoneplus/dujia_shuqi_banner_20180710.jpg',
-        },
-        {
-          id:'0002',
-          imgUrl:'https://source.qunarzz.com/site/images/wap/home/recommend/iphoneplus/anquan_20180716.png',
-        }
-      ]
+      
 
     };
   }
@@ -43,7 +37,7 @@ export default {
 
 .wrapper {
   width: 100%;
-  height: 24.53vw;
+  height: 30vw;
   background: #cccccc;
 
   .weiper-img {

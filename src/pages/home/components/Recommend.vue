@@ -4,7 +4,7 @@
             热销推荐
         </div>
         <ul>
-            <li class="item border-bottom" v-for="(item,index) in recommendList" :key="item.id">
+            <li class="item border-bottom" v-for="item in list" :key="item.id">
                 <img :src="item.imgUrl" class="item-img">
                 <div class="item-info">
                     <p class="item-title">{{item.title}}</p>
@@ -20,35 +20,8 @@
 <script>
     export default {
         name:'Recommend',
-        data() {
-            return {
-                recommendList:[
-                    {
-                        id:'0001',
-                        imgUrl:'https://gw.alicdn.com/bao/uploaded/i2/TB10pDHjY1YBuNjSszh1QIUsFXa_022624.jpg_400x400q75.jpg_.webp',
-                        title:'东京 | 自由行',
-                        desc:'暑期全国直飞日本东京5-7天往返含税单机票 自由行 赏樱日本旅游'
-                    },
-                    {
-                        id:'0002',
-                        imgUrl:'https://gw.alicdn.com/bao/uploaded/i2/TB10pDHjY1YBuNjSszh1QIUsFXa_022624.jpg_400x400q75.jpg_.webp',
-                        title:'东京 | 自由行',
-                        desc:'暑期全国直飞日本东京5-7天往返含税单机票 自由行 赏樱日本旅游'
-                    },
-                    {
-                        id:'0003',
-                        imgUrl:'https://gw.alicdn.com/bao/uploaded/i2/TB10pDHjY1YBuNjSszh1QIUsFXa_022624.jpg_400x400q75.jpg_.webp',
-                        title:'东京 | 自由行',
-                        desc:'暑期全国直飞日本东京5-7天往返含税单机票 自由行 赏樱日本旅游'
-                    },
-                    {
-                        id:'0004',
-                        imgUrl:'https://gw.alicdn.com/bao/uploaded/i2/TB10pDHjY1YBuNjSszh1QIUsFXa_022624.jpg_400x400q75.jpg_.webp',
-                        title:'东京 | 自由行',
-                        desc:'暑期全国直飞日本东京5-7天往返含税单机票 自由行 赏樱日本旅游'
-                    },
-                ]
-            }
+        props:{
+            list:Array
         },
     }
 </script>
