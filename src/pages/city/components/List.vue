@@ -17,7 +17,7 @@
                     </div>
                 </div>            
             </div>
-            <div class="area" v-for="(item,key) in cities" :key="key">
+      <div class="area" v-for="(item, key) of cities" :key="key" :ref="key"  >
                 <div class="title border-topbottom">{{key}}</div>
                 <div class="item-list" v-for="inneritem in item" :key="inneritem.id">
                     <div class="item border-bottom">{{inneritem.name}}</div>
@@ -28,17 +28,26 @@
 </template>
 
 <script>
-import Bscroll from 'better-scroll'
-    export default {
-        name:"CityList",
-        props:{
-            hot:Array,
-            cities:Object
-        },
-        mounted () {
-            this.scroll = new Bscroll(this.$refs.wrapper)
+import Bscroll from "better-scroll";
+export default {
+    name: "CityList",
+    props: {
+        hot: Array,
+        cities: Object,
+        letter: String
+    },
+    mounted() {
+        this.scroll = new Bscroll(this.$refs.wrapper);
+    },
+    watch: {
+        letter() {
+            if (this.letter) {
+                const element = this.$refs[this.letter][0];
+                this.scroll.scrollToElement(element);
+            }
         }
     }
+};
 </script>
 
 <style scoped lang="stylus">
@@ -48,11 +57,9 @@ import Bscroll from 'better-scroll'
         border-color #cccccc
     &:after
         border-color #cccccc
-
 .border-bottom
     &:before
         border-color #cccccc
-
 .list
     position absolute
     overflow hidden
@@ -61,26 +68,26 @@ import Bscroll from 'better-scroll'
     right 0
     bottom 0
     .title
-        line-height .4rem
+        line-height 0.4rem
         background #eeeeee
-        padding left .2rem
+        padding left 0.2rem
         color #666666
-        font-size .26rem
-        padding-left .1rem
+        font-size 0.26rem
+        padding-left 0.1rem
     .button-list
-        padding .1rem .6rem .1rem .1rem
+        padding 0.1rem 0.6rem 0.1rem 0.1rem
         overflow hidden
         .button-wrapper
             width 33.33%
-            float left 
+            float left
             .button
                 text-align center
-                margin .1rem
-                padding .1rem 0
-                border-radius .06rem
-                border .02rem solid #cccccc
+                margin 0.1rem
+                padding 0.1rem 0
+                border-radius 0.06rem
+                border 0.02rem solid #cccccc
     .item-list
         .item
-            line-height .76rem
-            padding-left .2rem
+            line-height 0.76rem
+            padding-left 0.2rem
 </style>
