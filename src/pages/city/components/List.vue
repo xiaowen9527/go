@@ -20,7 +20,7 @@
       <div class="area" v-for="(item, key) of cities" :key="key" :ref="key"  >
                 <div class="title border-topbottom">{{key}}</div>
                 <div class="item-list" v-for="inneritem in item" :key="inneritem.id">
-                    <div @click="handleCityClick(inneritem.name)" @touchend="handleCityClick(inneritem.name)" class="item border-bottom">{{inneritem.name}}</div>
+                    <div @click="handleCityClick(inneritem.name)" class="item border-bottom">{{inneritem.name}}</div>
                 </div>
             </div>
         </div>
