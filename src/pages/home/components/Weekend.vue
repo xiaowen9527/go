@@ -21,11 +21,11 @@
 
 <script>
 export default {
-  name: "Weekend",
-  props:{
-    list:Array
+  name: 'HomeWeekend',
+  props: {
+    list: Array
   }
-};
+}
 </script>
 
 <style lang="stylus" scoped>
@@ -37,7 +37,7 @@ export default {
   .item-img-wrapper
     overflow: hidden
     height: 0
-    padding-bottom: 38%
+    padding-bottom: 37.09%
     .item-img
       width: 100%
   .item-info
