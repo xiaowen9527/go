@@ -18,24 +18,22 @@ export default {
   data() {
     return {
       showAbs: true,
-      opacityStyle:{
-        opacity:0
+      opacityStyle: {
+        opacity: 0
       }
     };
   },
 
   methods: {
     handleScroll() {
-      console.log('scroll');
-      
       const top = document.documentElement.scrollTop;
       if (top > 60) {
-        let opacity = top/140
-        opacity>1?1:opacity
+        let opacity = top / 140;
+        opacity > 1 ? 1 : opacity;
         this.opacityStyle = {
           // opacity:opacity
           opacity
-        }
+        };
         this.showAbs = false;
       } else {
         this.showAbs = true;
@@ -47,7 +45,7 @@ export default {
   },
   deactivated() {
     window.removeEventListener("scroll", this.handleScroll);
-  },
+  }
 };
 </script>
 
@@ -74,6 +72,7 @@ export default {
   color #fff
   top 0
   left 0
+  z-index 999
   right 0
   background $bgColor
   font-size 0.32rem
