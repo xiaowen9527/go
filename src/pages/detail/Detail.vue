@@ -1,6 +1,6 @@
 <template>
     <div>
-        <detail-banner></detail-banner>
+        <detail-banner :sightName="sightName" :bannerImg="bannerImg" :bannerImgs="gallaryImgs"></detail-banner>
         <detail-header></detail-header>
         
         <div class="container">
@@ -10,51 +10,62 @@
 </template>
 
 <script>
-import DetailBanner from "./components/Banner"
-import DetailHeader from "./components/Header"
-import DetailList from "./components/List"
-    export default {
-        name:"Deatil",
-        components: {
-            DetailBanner,DetailHeader,DetailList
-        },
-        data() {
-            return {
-               list:[{
-                   title:"成人票",
-                   children:[{
-                       title:"成人三馆联票"
-                   },{
-                       title:"成人五馆联票"
-                   }]
-               },{
-                   title:"学生票",
-                   children:[{
-                       title:"学生三馆联票"
-                   },{
-                       title:"学生五馆联票"
-                   }]
-               },{
-                   title:"儿童票",
-                   children:[{
-                       title:"儿童三馆联票"
-                   },{
-                       title:"儿童五馆联票"
-                   }]
-               },{
-                   title:"特惠票",
-                   children:[{
-                       title:"特惠三馆联票"
-                   },{
-                       title:"特惠五馆联票"
-                   }]
-               }]
-            }
-        },
+import DetailBanner from "./components/Banner";
+import DetailHeader from "./components/Header";
+import DetailList from "./components/List";
+import axios from "axios";
+export default {
+  name: "Deatil",
+  components: {
+    DetailBanner,
+    DetailHeader,
+    DetailList
+  },
+  data() {
+    return {
+      sightName:'',
+      bannerImg:'',
+      gallaryImgs:[],
+      list: [],
+      infoId:''
+    };
+  },
+  methods: {
+    getDetailInfo() {
+      // axios.get('/api/detail.json?id='+this.$route.params.id)
+      axios
+        .get("/api/detail.json", {
+          params: {
+            id: this.$route.params.id
+          }
+        })
+        .then(this.handleGetDataSucc);
+    },
+    handleGetDataSucc(res) {
+      res = res.data;
+      if (res.ret && res.data) {
+        const data = res.data;
+        this.sightName = data.sightName
+        this.bannerImg = data.bannerImg
+        this.gallaryImgs = data.gallaryImgs
+        this.list = data.categoryList
+        this.infoId = this.$route.params.id
+        alert(this.infoId)
+      }
     }
+  },
+  mounted() {
+    //this.getDetailInfo();
+  },
+  activated () {
+    if(this.infoId!==this.$route.params.id){
+      this.getDetailInfo();
+    }
+  }
+};
 </script>
 
 <style scoped lang="stylus">
 .container
-    height 50rem
+  height 50rem
 </style>
