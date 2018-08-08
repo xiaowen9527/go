@@ -50,7 +50,7 @@ export default {
         this.gallaryImgs = data.gallaryImgs
         this.list = data.categoryList
         this.infoId = this.$route.params.id
-        alert(this.infoId)
+        // alert(this.infoId)
       }
     }
   },
