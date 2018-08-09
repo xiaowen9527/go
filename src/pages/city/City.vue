@@ -37,7 +37,7 @@ export default {
   },
   methods: {
     getCityInfo () {
-      axios.get('/api/city.json')
+      axios.get('https://www.easy-mock.com/mock/5b6af6b5a40bfb27425bbb3b/go/city')
         .then(this.handleGetCityInfoSucc)
     },
     handleGetCityInfoSucc (res) {
