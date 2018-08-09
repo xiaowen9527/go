@@ -6,6 +6,7 @@ import router from './router'
 import fastClick from 'fastclick'
 import "babel-polyfill"//防止某些手机白屏
 
+fastClick.attach(document.body)
 
 import "styles/reset.css"
 import "styles/border.css"
